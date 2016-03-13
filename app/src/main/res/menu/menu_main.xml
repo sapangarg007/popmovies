@@ -1,0 +1,14 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.udacity.nanodegree.popularmovies.MainActivity"
+    android:icon="@android:drawable/ic_menu_more"
+    app:showAsAction="ifRoom">
+    <item
+        android:id="@+id/menuSortPopular"
+        android:title="Sort by popularity" />
+    <item
+        android:id="@+id/menuSortRating"
+        android:title="Sort by rating" />
+</menu>
