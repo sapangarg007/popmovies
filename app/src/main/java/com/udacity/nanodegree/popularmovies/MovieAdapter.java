@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class MovieAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Movie> movies;
-    private final static String POSTER_MOVIES_URL = "http://image.tmdb.org/t/p/w185/";
+    private final static String MOVIES_POSTER_URL = "http://image.tmdb.org/t/p/w185/";
 
     public MovieAdapter(Context context, ArrayList<Movie> movies) {
         this.context = context;
@@ -51,7 +51,7 @@ public class MovieAdapter extends BaseAdapter {
         ImageView moviesGridImage = (ImageView) moviesGridView.findViewById(R.id.movies_gridImage);
 
         // 4. Set the text and image
-        Picasso.with(context).load(POSTER_MOVIES_URL + movies.get(position).getPosterUrl()).into(moviesGridImage);
+        Picasso.with(context).load(MOVIES_POSTER_URL + movies.get(position).getPosterUrl()).into(moviesGridImage);
 
         // 5. return rowView
         return moviesGridView;

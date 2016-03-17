@@ -1,6 +1,7 @@
 package com.udacity.nanodegree.popularmovies;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import org.json.JSONArray;
@@ -21,6 +24,11 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MainActivity";
+    public final static String EXTRA_MSG1 = TAG + ".originalTitle";
+    public final static String EXTRA_MSG2 = TAG + ".posterUrl";
+    public final static String EXTRA_MSG3 = TAG + ".plot";
+    public final static String EXTRA_MSG4 = TAG + ".userRating";
+    public final static String EXTRA_MSG5 = TAG + ".releaseDate";
     private final static String POPULAR_MOVIES_URL = "http://api.themoviedb.org/3/movie/popular";
     private ProgressDialog pDialog;
     private ArrayList<Movie> movies = new ArrayList<>();
@@ -66,6 +74,18 @@ public class MainActivity extends AppCompatActivity {
         MovieAdapter movieAdapter = new MovieAdapter(this, movies);
         GridView gridview = (GridView) findViewById(R.id.movies_gridView);
         gridview.setAdapter(movieAdapter);
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
+                intent.putExtra(EXTRA_MSG1, movies.get(position).getOriginalTitle());
+                intent.putExtra(EXTRA_MSG2, movies.get(position).getPosterUrl());
+                intent.putExtra(EXTRA_MSG3, movies.get(position).getPlot());
+                intent.putExtra(EXTRA_MSG4, movies.get(position).getUserRating().toString());
+                intent.putExtra(EXTRA_MSG5, movies.get(position).getReleaseDate());
+                startActivity(intent);
+            }
+        });
         return true;
     }
 
