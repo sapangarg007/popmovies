@@ -45,13 +45,18 @@
                     android:id="@+id/movie_release_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/movie_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/movie_trailer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
 
             </LinearLayout>
         </LinearLayout>
@@ -62,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_movie_detail"
             android:layout_marginTop="10dp"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
