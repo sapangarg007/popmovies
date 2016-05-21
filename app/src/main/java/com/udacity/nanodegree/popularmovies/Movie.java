@@ -1,6 +1,9 @@
 package com.udacity.nanodegree.popularmovies;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sgarg on 3/12/2016.
@@ -13,6 +16,7 @@ public class Movie {
     Double userRating;
     String releaseDate;
     Double popularity;
+    List<Map<String,String>> trailersList = new ArrayList<Map<String,String>>();
 
     public Movie(Long id, String originalTitle, String posterUrl, String plot, Double userRating, String releaseDate, Double popularity) {
         this.id = id;

@@ -45,16 +45,17 @@ public class MovieAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         // 2. Get cellView from inflater
-        View moviesGridView = inflater.inflate(R.layout.content_main_grid, parent, false);
+        if(convertView == null)
+            convertView = inflater.inflate(R.layout.content_main_grid, parent, false);
 
         // 3. Get the text and image views from the cellView
-        ImageView moviesGridImage = (ImageView) moviesGridView.findViewById(R.id.movies_gridImage);
+        ImageView moviesGridImage = (ImageView) convertView.findViewById(R.id.movies_gridImage);
 
         // 4. Set the text and image
         Picasso.with(context).load(MOVIES_POSTER_URL + movies.get(position).getPosterUrl()).into(moviesGridImage);
 
         // 5. return rowView
-        return moviesGridView;
+        return convertView;
     }
 }
 

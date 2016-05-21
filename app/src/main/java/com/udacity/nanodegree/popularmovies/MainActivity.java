@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_MSG3 = TAG + ".plot";
     public final static String EXTRA_MSG4 = TAG + ".userRating";
     public final static String EXTRA_MSG5 = TAG + ".releaseDate";
+    public final static String EXTRA_MSG6 = TAG + ".movieId";
     private final static String POPULAR_MOVIES_URL = "http://api.themoviedb.org/3/movie/popular";
     private ProgressDialog pDialog;
     private ArrayList<Movie> movies = new ArrayList<>();
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(EXTRA_MSG3, movies.get(position).getPlot());
                 intent.putExtra(EXTRA_MSG4, movies.get(position).getUserRating().toString());
                 intent.putExtra(EXTRA_MSG5, movies.get(position).getReleaseDate());
+                intent.putExtra(EXTRA_MSG6, movies.get(position).getId());
                 startActivity(intent);
             }
         });
